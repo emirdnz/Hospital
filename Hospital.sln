@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Entity", "Hospital.Entity\Hospital.Entity.csproj", "{B5BA1B5C-460B-448E-8B34-470169A9CEE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Entity", "Hospital.Entity\Hospital.Entity.csproj", "{B5BA1B5C-460B-448E-8B34-470169A9CEE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Data", "Hospital.Data\Hospital.Data.csproj", "{64F4D05F-AC53-416D-B0F8-8A6FCBBADD89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Data", "Hospital.Data\Hospital.Data.csproj", "{64F4D05F-AC53-416D-B0F8-8A6FCBBADD89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.BL", "Hospital.BL\Hospital.BL.csproj", "{3B983EA7-3736-4AA2-AFE3-A5D60A233940}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.BL", "Hospital.BL\Hospital.BL.csproj", "{3B983EA7-3736-4AA2-AFE3-A5D60A233940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.MVC", "Hospital.MVC\Hospital.MVC.csproj", "{44AEB350-1E3B-4C75-A818-FA36997B1E52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.MVC", "Hospital.MVC\Hospital.MVC.csproj", "{44AEB350-1E3B-4C75-A818-FA36997B1E52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,27 @@
+
+- logincontroller yap (+)
+- areas / admin sayfasý yap  (+)
+- admin sayfasýnýn içerisine  (+)
+  branch ekleme  (+)
+  doktor ekleme   (+)
+  room ekleme   (+)
+  ve appointment listeme ekleme  (+)
+  ve bunlarýn hepsini editleme ekleme  (+)
+
+  bunlar içinde controller eklenecek   (+)
+
+
+==========================================================================================
+2.part
+
+- þimdi bunlarý doldur 
+
+
+
+  
+
+
+
+
+
+
