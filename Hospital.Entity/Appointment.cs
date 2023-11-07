@@ -19,5 +19,8 @@ namespace Hospital.Entity
 
         public int RoomId { get; set; }
         public Room RoomName { get; set; }
+
+
+
     }
 }

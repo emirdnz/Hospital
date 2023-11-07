@@ -10,11 +10,11 @@ namespace Hospital.Data.EntityConfig
 {
     public class AppointmentConfig : BaseConfig<Appointment>
     {
-        public override void Configure(EntityTypeBuilder<Appointment> builder)
-        {
-            base.Configure(builder);
-            builder.HasIndex(x => new { x.DoctorId, x.RoomId, x.PatientId, x.AppointmentTime }).IsUnique();
+        //public override void Configure(EntityTypeBuilder<Appointment> builder)
+        //{
+        //    base.Configure(builder);
+        //    builder.HasIndex(x => new { x.PhoneNumber, x.EmailAdress}).IsUnique();
 
-        }
+        //}
     }
 }

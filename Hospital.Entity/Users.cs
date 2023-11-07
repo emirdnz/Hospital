@@ -23,7 +23,7 @@ namespace Hospital.Entity
 
         public Role Role { get; set; }
 
-        public int? GSM { get; set; }
+        public int? Phone { get; set; }
 
         public ICollection<Appointment?> Appointments { get; set; }
 
