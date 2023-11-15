@@ -24,17 +24,17 @@ namespace Hospital.MVC.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<HospitalMVCUser> _signInManager;
-        private readonly UserManager<HospitalMVCUser> _userManager;
-        private readonly IUserStore<HospitalMVCUser> _userStore;
-        private readonly IUserEmailStore<HospitalMVCUser> _emailStore;
+        private readonly SignInManager<HospitalUser> _signInManager;
+        private readonly UserManager<HospitalUser> _userManager;
+        private readonly IUserStore<HospitalUser> _userStore;
+        private readonly IUserEmailStore<HospitalUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<HospitalMVCUser> userManager,
-            IUserStore<HospitalMVCUser> userStore,
-            SignInManager<HospitalMVCUser> signInManager,
+            UserManager<HospitalUser> userManager,
+            IUserStore<HospitalUser> userStore,
+            SignInManager<HospitalUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -70,7 +70,9 @@ namespace Hospital.MVC.Areas.Identity.Pages.Account
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         public class InputModel
+
         {
+
             [DataType(DataType.Text)]
             [Display(Name = "First Name")]
             public string FirstName { get; set; }
@@ -113,11 +115,6 @@ namespace Hospital.MVC.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                Response.Redirect("/");
-            }
-
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -132,7 +129,6 @@ namespace Hospital.MVC.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
-
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -173,27 +169,27 @@ namespace Hospital.MVC.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private HospitalMVCUser CreateUser()
+        private HospitalUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<HospitalMVCUser>();
+                return Activator.CreateInstance<HospitalUser>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(HospitalMVCUser)}'. " +
-                    $"Ensure that '{nameof(HospitalMVCUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(HospitalUser)}'. " +
+                    $"Ensure that '{nameof(HospitalUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }
 
-        private IUserEmailStore<HospitalMVCUser> GetEmailStore()
+        private IUserEmailStore<HospitalUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<HospitalMVCUser>)_userStore;
+            return (IUserEmailStore<HospitalUser>)_userStore;
         }
     }
 }

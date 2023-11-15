@@ -11,9 +11,9 @@ namespace Hospital.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<HospitalMVCUser> _userManager;
+        private readonly UserManager<HospitalUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<HospitalMVCUser> userManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<HospitalUser> userManager)
         {
             _logger = logger;
             this._userManager = userManager;

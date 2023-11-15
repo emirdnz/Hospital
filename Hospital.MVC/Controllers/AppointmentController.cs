@@ -1,64 +1,83 @@
-﻿using Hospital.MVC.Areas.Identity.Data;
-using Hospital.MVC.Data;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.MVC.Controllers
 {
-
-    [Authorize]
     public class AppointmentController : Controller
     {
-        private readonly ILogger<AppointmentController> _logger;
-        private readonly UserManager<HospitalMVCUser> _userManager;
-        private readonly HospitalDbContext context;
-
-        public AppointmentController(ILogger<AppointmentController> logger, UserManager<HospitalMVCUser> userManager, HospitalDbContext context)
+        // GET: AppointmentController
+        public ActionResult Index()
         {
-            _logger = logger;
-            this._userManager = userManager;
-            this.context = context;
+            return View();
         }
 
-
-        //GET
-
-        public async Task<IActionResult> Index()
+        // GET: AppointmentController/Details/5
+        public ActionResult Details(int id)
         {
-            return context.Users != null ?
-                View(await context.Users.ToListAsync()) :
-                Problem("users is null");
+            return View();
         }
 
+        // GET: AppointmentController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-
-
-        //Post
-
+        // POST: AppointmentController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> User()
+        public ActionResult Create(IFormCollection collection)
         {
-            
-            
-            
-            if (!ModelState.IsValid)
+            try
             {
-                context.Add(User);
-                await context.SaveChangesAsync();
-                return RedirectToAction("Index");   
+                return RedirectToAction(nameof(Index));
             }
-
-            return View(User);
-
-
+            catch
+            {
+                return View();
+            }
         }
 
+        // GET: AppointmentController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
 
+        // POST: AppointmentController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
+        // GET: AppointmentController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
 
-
+        // POST: AppointmentController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

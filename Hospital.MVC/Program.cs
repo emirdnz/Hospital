@@ -8,11 +8,10 @@ var connectionString = builder.Configuration.GetConnectionString("HospitalDbCont
 
 builder.Services.AddDbContext<HospitalDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<HospitalMVCUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<HospitalDbContext>();
+builder.Services.AddDefaultIdentity<HospitalUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<HospitalDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddRazorPages();
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -37,7 +36,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-app.MapRazorPages();
+app.MapRazorPages(); 
 
 app.Run();

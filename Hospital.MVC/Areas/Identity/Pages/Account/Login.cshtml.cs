@@ -20,10 +20,10 @@ namespace Hospital.MVC.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
-        private readonly SignInManager<HospitalMVCUser> _signInManager;
+        private readonly SignInManager<HospitalUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<HospitalMVCUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<HospitalUser> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
@@ -91,6 +91,7 @@ namespace Hospital.MVC.Areas.Identity.Pages.Account
             {
                 Response.Redirect("/");
             }
+
 
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
