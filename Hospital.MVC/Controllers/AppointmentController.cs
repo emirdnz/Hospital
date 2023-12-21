@@ -1,83 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Hospital.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.MVC.Controllers
 {
     public class AppointmentController : Controller
     {
-        // GET: AppointmentController
-        public ActionResult Index()
-        {
-            return View();
-        }
 
-        // GET: AppointmentController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
-        // GET: AppointmentController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: AppointmentController/Create
+        public IActionResult Index() { return View(); }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult cretaeappointment(Appointment model)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+            var value = model.name;
+            var value2 = model.phone;
+            var value3 = model.email;
+            var value4 = model.date;
+            var value5 = model.time;
 
-        // GET: AppointmentController/Edit/5
-        public ActionResult Edit(int id)
-        {
+
             return View();
+
         }
 
-        // POST: AppointmentController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: AppointmentController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: AppointmentController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
+
+
+
 }
