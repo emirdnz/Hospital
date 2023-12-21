@@ -11,25 +11,24 @@ using System.Threading.Tasks;
 
 namespace Hospital.Data.Concrete
 {
-    public class GenericBase<T> : IBaseRepo<T>
-       where T : BaseEntity
+    public class GenericBase<T> : IBaseRepo<T> where T : BaseEntity
 
 
     {
 
-        public readonly HospitalContext context;
+        public HospitalContext context { get; set; }
 
         public GenericBase()
         {
-            this.context = new HospitalContext();
+            context = new HospitalContext();
         }
 
-        public async Task<int> Create(T entity)
+        public virtual async Task<int> Create(T entity)
         {
-            context.Set<T>().Add(entity);
+            await context.Set<T>().AddAsync(entity);
             return await context.SaveChangesAsync();
         }
-        public async Task<int> Update(T entity)
+        public virtual async Task<int> Update(T entity)
         {
             context.Set<T>().Update(entity);
             return await context.SaveChangesAsync();
@@ -38,6 +37,11 @@ namespace Hospital.Data.Concrete
         {
             context.Set<T>().Remove(entity);
             return await context.SaveChangesAsync();
+        }
+
+        public async Task<ICollection<T>> GetAll()
+        {
+            return await context.Set<T>().ToListAsync();
         }
 
         public async Task<List<T>> GetAll(Expression<Func<T, bool>> filter = null)
@@ -75,4 +79,7 @@ namespace Hospital.Data.Concrete
 
 
     }
+
+
+
 }

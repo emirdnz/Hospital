@@ -1,4 +1,4 @@
-﻿using Hospital.MVC.Models;
+﻿using Hospital.MVC.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.MVC.Controllers
