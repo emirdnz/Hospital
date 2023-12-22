@@ -1,4 +1,4 @@
-﻿using Hospital.MVC.Areas.Identity.Data;
+﻿using Hospital.MVC.Areas.Identity.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.MVC.Controllers
@@ -10,14 +10,17 @@ namespace Hospital.MVC.Controllers
 
         public IActionResult Index() { return View(); }
 
+       
+        
+        
         [HttpPost]
-        public IActionResult cretaeappointment(Appointment model)
+        public IActionResult Index(Appointment model)
         {
-            var value = model.name;
-            var value2 = model.phone;
-            var value3 = model.email;
-            var value4 = model.date;
-            var value5 = model.time;
+            var value = model.Name;
+            var value2 = model.Phone;
+            var value3 = model.Email;
+            var value4 = model.Date;
+            var value5 = model.Time;
 
 
             return View();
