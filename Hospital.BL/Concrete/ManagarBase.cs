@@ -1,4 +1,5 @@
 ﻿using Hospital.BL.Abstract;
+using Hospital.Data.Abstract;
 using Hospital.Data.Concrete;
 using Hospital.Entity;
 using System;
@@ -12,11 +13,11 @@ namespace Hospital.BL.Concrete
 {
     public class ManagarBase<T> : IManagerService<T> where T : BaseEntity
     {
-        public readonly GenericBase<T> repository;
+        private readonly IBaseRepo<T> repository;
 
-        public ManagarBase()
+        public ManagarBase(IBaseRepo<T> repository)
         {
-            this.repository = new GenericBase<T>();
+            this.repository = repository;
         }
 
         public async Task<int> CreateAsync(T entity)
@@ -30,11 +31,23 @@ namespace Hospital.BL.Concrete
         {
             return await repository.Delete(entity);
         }
-
+        public async Task<T?> GetByIdAsync(int id)
+        {
+            return await repository.GetById(id);
+        }
+        public async Task<T?> GetByAsync(Expression<Func<T, bool>> filter)
+        {
+            return await repository.GetBy(filter);
+        }
         public async Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter = null)
         {
 
             return await repository.GetAll(filter);
+        }
+
+        public async Task<ICollection<T>> GetAllAsync()
+        {
+            return await repository.GetAll();
         }
 
         public async Task<IQueryable<T>> GetAllIncludeAsync(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] include)
@@ -42,15 +55,9 @@ namespace Hospital.BL.Concrete
             return await repository.GetAllInclude(filter, include);
         }
 
-        public async Task<T?> GetByAsync(Expression<Func<T, bool>> filter)
-        {
-            return await repository.GetBy(filter);
-        }
+      
 
-        public async Task<T?> GetByIdAsync(int id)
-        {
-            return await repository.GetById(id);
-        }
+       
 
         public async Task<int> UpdateAsync(T entity)
         {

@@ -15,6 +15,7 @@ namespace Hospital.Data.EntityConfig
         {
             builder.HasIndex(p => p.Id);
             builder.Property(p => p.CreateDate).HasDefaultValue(DateTime.Now);
+            
         }
     }
 }

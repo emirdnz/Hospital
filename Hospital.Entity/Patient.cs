@@ -16,6 +16,6 @@ namespace Hospital.Entity
         public string? Email { get; set; }
         public string? GSM { get; set; }
 
-        public ICollection<Appointment?> Appointments { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
     }
 }

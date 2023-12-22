@@ -11,6 +11,6 @@ namespace Hospital.Entity
         public string SecretaryName { get; set; }
         public string SecretarySurname { get; set; }
         public int PersonalCode { get; set; }
-        public ICollection<Appointment?> Appointments { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
     }
 }

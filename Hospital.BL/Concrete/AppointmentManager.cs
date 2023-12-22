@@ -1,4 +1,5 @@
 ﻿using Hospital.BL.Abstract;
+using Hospital.Data.Abstract;
 using Hospital.Entity;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace Hospital.BL.Concrete
 {
-    public class AppointmentManager : ManagarBase<Appointment> , IAppointmentService
+    public class AppointmentManager : ManagarBase<Appointment>, IAppointmentService
     {
+        public AppointmentManager(IBaseRepo<Appointment> repository) : base(repository)
+        {
+        }
     }
 }

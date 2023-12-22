@@ -17,6 +17,7 @@ namespace Hospital.BL.Abstract
         Task<T?> GetByIdAsync(int id);
 
         Task<T?> GetByAsync(Expression<Func<T, bool>> filter);
+        Task<ICollection<T>> GetAllAsync();
         Task<List<T>> GetAllAsync(Expression<Func<T, bool>> filter = null);
 
         Task<IQueryable<T>> GetAllIncludeAsync(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] include);

@@ -1,4 +1,5 @@
 ﻿using Hospital.Entity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,23 @@ namespace Hospital.Data.EntityConfig
 {
     public class AppointmentConfig : BaseConfig<Appointment>
     {
-        //public override void Configure(EntityTypeBuilder<Appointment> builder)
-        //{
-        //    base.Configure(builder);
-        //    builder.HasIndex(x => new { x.PhoneNumber, x.EmailAdress}).IsUnique();
+        public override void Configure(EntityTypeBuilder<Appointment>builder )
+        {
+            base.Configure(builder);
+            builder.HasOne(a => a.Patient)
+              .WithMany(p => p.Appointments)
+              .HasForeignKey(a => a.PatientId)
+              .OnDelete(DeleteBehavior.Restrict);
 
-        //}
+            builder.HasOne(a => a.Doctor)
+                .WithMany(d => d.Appointments)
+                .HasForeignKey(a => a.DoctorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(a => a.Room)
+                .WithMany(r => r.Appointments)
+                .HasForeignKey(a => a.RoomId)
+                .OnDelete(DeleteBehavior.Restrict);
+        }
     }
 }

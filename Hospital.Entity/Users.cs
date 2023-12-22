@@ -25,7 +25,7 @@ namespace Hospital.Entity
 
         public int? Phone { get; set; }
 
-        public ICollection<Appointment?> Appointments { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
 
        
         

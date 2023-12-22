@@ -13,7 +13,7 @@ namespace Hospital.Data.Context
     {
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
-        public DbSet<Appointment> Apointments { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Branch> Branches { get; set; }
         public DbSet<Users> Users { get; set; }
@@ -30,7 +30,7 @@ namespace Hospital.Data.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=(LocalDB)\\MSSQLLocalDB;Database=HospitalDB; Trusted_Connection=True; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=BERKPC;Database=HastaneDb;Trusted_Connection=True;Trust_ServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

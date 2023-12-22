@@ -1,5 +1,6 @@
 ﻿using Hospital.BL.Abstract;
 using Hospital.BL.Concrete;
+using Hospital.Data.Abstract;
 using Hospital.Entity;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,8 @@ namespace Hospital2.BL.Concrete
 {
     public class DoctorManager : ManagarBase<Doctor>, IDoctorService
     {
+        public DoctorManager(IBaseRepo<Doctor> repository) : base(repository)
+        {
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Hospital.Entity
         public string? Css { get; set; }
         public string? Icon { get; set; }
 
-        public int? RoleID { get; set; }
+        public int RoleID { get; set; }
         public Role? Role { get; set; }
     }
 }
