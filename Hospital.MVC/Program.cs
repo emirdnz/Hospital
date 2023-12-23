@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+
 using Microsoft.EntityFrameworkCore;
 using Hospital.MVC.Data;
 
@@ -7,16 +7,12 @@ var connectionString = builder.Configuration.GetConnectionString("HospitalDbCont
 
 builder.Services.AddDbContext<HospitalDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<HospitalUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<HospitalDbContext>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-builder.Services.Configure<IdentityOptions>(options =>
-{
-    options.Password.RequireUppercase = false;
-});
 
 var app = builder.Build();
 

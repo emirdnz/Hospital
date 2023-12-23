@@ -1,27 +1,26 @@
 ﻿using Hospital.MVC.Data;
 using Hospital.MVC.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Hospital.MVC.Controllers
 {
-    [Authorize]
+ 
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<HospitalUser> _userManager;
+       
 
-        public HomeController(ILogger<HomeController> logger, UserManager<HospitalUser> userManager)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            this._userManager = userManager;
+            
         }
 
         public IActionResult Index()
         {
-            ViewData["UserID"] = _userManager.GetUserId(this.User);
+           
             return View();
         }
 

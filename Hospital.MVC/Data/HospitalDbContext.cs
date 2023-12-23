@@ -1,12 +1,10 @@
 ﻿using Hospital.MVC.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hospital.MVC.Data;
 
-public class HospitalDbContext : IdentityDbContext<HospitalUser>
+public class HospitalDbContext : DbContext
 {
     public DbSet<Appointment> Appointments { get; set; }
   
@@ -15,20 +13,7 @@ public class HospitalDbContext : IdentityDbContext<HospitalUser>
     {
         modelBuilder.Entity<Appointment>().HasKey(a => a.Id); // Burada Id, birincil anahtarı temsil eden bir özellik olmalıdır.
 
-        modelBuilder.Entity<IdentityUserLogin<string>>(entity =>
-        {
-            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
-        });
-
-        modelBuilder.Entity<IdentityUserRole<string>>(entity =>
-        {
-            entity.HasKey(e => new { e.UserId, e.RoleId });
-        });
-
-        modelBuilder.Entity<IdentityUserToken<string>>(entity =>
-        {
-            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
-        });
+    
     }
 
     public HospitalDbContext() { }
@@ -40,10 +25,7 @@ public class HospitalDbContext : IdentityDbContext<HospitalUser>
 
     }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //    optionsBuilder.UseSqlServer("appsettings.json");
-    //}
+ 
 
 
 
