@@ -1,4 +1,4 @@
-﻿using Hospital.MVC.Areas.Identity.Data;
+﻿using Hospital.MVC.Data;
 using Hospital.MVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

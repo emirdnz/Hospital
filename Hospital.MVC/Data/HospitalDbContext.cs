@@ -1,5 +1,4 @@
-﻿using Hospital.MVC.Areas.Identity.Data;
-using Hospital.MVC.Areas.Identity.Data.Entity;
+﻿using Hospital.MVC.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

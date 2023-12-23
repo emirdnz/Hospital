@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Hospital.MVC.Data;
-using Hospital.MVC.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("HospitalDbContextConnection") ?? throw new InvalidOperationException("Connection string 'HospitalDbContextConnection' not found.");

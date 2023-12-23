@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace Hospital.MVC.Areas.Identity.Data;
+namespace Hospital.MVC.Data;
 
 // Add profile data for application users by adding properties to the HospitalUser class
 public class HospitalUser : IdentityUser
@@ -24,5 +24,5 @@ public class HospitalUser : IdentityUser
     public string? Email { get; set; }
 }
 
- 
+
 

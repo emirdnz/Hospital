@@ -2,7 +2,7 @@
 using Microsoft.VisualBasic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Hospital.MVC.Areas.Identity.Data.Entity
+namespace Hospital.MVC.Models
 {
     public class Appointment
     {
@@ -12,7 +12,7 @@ namespace Hospital.MVC.Areas.Identity.Data.Entity
 
         public string Phone { get; set; }
 
-        public  string Email { get; set; }
+        public string Email { get; set; }
 
         public string Date { get; set; }
 
