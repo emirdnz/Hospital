@@ -11,15 +11,16 @@ namespace Hospital.MVC.Controllers
 
         public AppointmentController(HospitalDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
 
         public IActionResult Index()
         {
 
-            return _context.Appointments != null ?
-                View(_context.Appointments.ToList()) : Problem("enitity set 'Appointments' is null");
+                var kayitlar = _context.Appointments.ToList();
+            return
+                View(kayitlar);
         }
 
 
