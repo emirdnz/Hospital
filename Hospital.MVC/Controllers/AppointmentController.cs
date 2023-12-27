@@ -1,4 +1,5 @@
-﻿using Hospital.MVC.Models;
+﻿using Hospital.MVC.Data;
+using Hospital.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata;
 
@@ -6,14 +7,24 @@ namespace Hospital.MVC.Controllers
 {
     public class AppointmentController : Controller
     {
+        private readonly HospitalDbContext _context;
 
+        public AppointmentController(HospitalDbContext context)
+        {
+            this._context = context;
+        }
 
 
         public IActionResult Index()
         {
-            return View();
 
+            return _context.Appointments != null ?
+                View(_context.Appointments.ToList()) : Problem("enitity set 'Appointments' is null");
         }
+
+
+
+
 
 
 

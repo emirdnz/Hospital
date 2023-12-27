@@ -2,7 +2,7 @@
 
 namespace Hospital.MVC.Controllers
 {
-    public class AppointmentList : Controller
+    public class AppointmentListController : Controller
     {
         public IActionResult Index()
         {
