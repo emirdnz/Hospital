@@ -1,4 +1,7 @@
-﻿<form asp-action="Index" asp-controller="appoitment" method="post">
+﻿@model IEnumerable<Appointment>
+
+
+<form asp-action="Index" asp-controller="appointment" method="post">
 
     <div class="formbold-mb-5">
         <label for="name" class="formbold-form-label"> Full Name </label>
@@ -47,7 +50,7 @@
 
 
     <div>
-        <button class="formbold-btn" type="submit">Take Appointment</button>
+        <button class="formbold-btn" type="submit" formmethod="post">Take Appointment</button>
     </div>
 
 </form>

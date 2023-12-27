@@ -1,4 +1,16 @@
-﻿
+﻿@model IEnumerable<Appointment>
 
 
-<h3>appontment list</h3>
+    @{
+        ViewBag.Title = "Randevular";
+    }
+
+    @foreach (var item in Model)
+{
+    <div>
+        @item.Name
+        @item.Phone
+        @item.Date
+        @item.Time
+    </div>
+}
